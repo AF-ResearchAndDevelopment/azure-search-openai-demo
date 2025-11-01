@@ -395,6 +395,29 @@ async def list_uploaded(auth_claims: dict[str, Any]):
     return jsonify(files), 200
 
 
+@bp.post("/create_folder")
+@authenticated
+async def create_folder(auth_claims: dict[str, Any]):
+    """Creates a new folder in the user's directory."""
+    request_json = await request.get_json()
+    folder_name = request_json.get("folder_name")
+    if not folder_name:
+        return jsonify({"message": "Folder name is required", "status": "failed"}), 400
+    
+    # Validate folder name - no path traversal or special characters
+    if "/" in folder_name or "\\" in folder_name or ".." in folder_name:
+        return jsonify({"message": "Invalid folder name", "status": "failed"}), 400
+    
+    try:
+        user_oid = auth_claims["oid"]
+        adls_manager: AdlsBlobManager = current_app.config[CONFIG_USER_BLOB_MANAGER]
+        await adls_manager.create_folder(folder_name, user_oid)
+        return jsonify({"message": f"Folder {folder_name} created successfully"}), 200
+    except Exception as error:
+        current_app.logger.error("Error creating folder: %s", error)
+        return jsonify({"message": "Error creating folder, check server logs for details.", "status": "failed"}), 500
+
+
 @bp.before_app_serving
 async def setup_clients():
     # Replace these with your own values, either in environment variables or directly here

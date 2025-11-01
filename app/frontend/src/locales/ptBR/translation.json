@@ -30,7 +30,15 @@
         "deleteFile": "Excluir arquivo",
         "deletingFile": "Excluindo arquivo...",
         "errorDeleting": "Erro ao excluir.",
-        "fileDeleted": "Arquivo excluído"
+        "fileDeleted": "Arquivo excluído",
+        "createFolderLabel": "Criar uma nova pasta",
+        "folderNameLabel": "Nome da pasta",
+        "folderNamePlaceholder": "Digite o nome da pasta",
+        "createFolder": "Criar pasta",
+        "creatingFolder": "Criando pasta...",
+        "folderNameRequired": "O nome da pasta é obrigatório",
+        "invalidFolderName": "Nome de pasta inválido. Não pode conter / \\ ou ..",
+        "folderCreationError": "Erro ao criar pasta - tente novamente ou entre em contato com o administrador."
     },
     "developerSettings": "Configurações do desenvolvedor",
 

@@ -30,7 +30,15 @@
         "deleteFile": "Eliminar archivo",
         "deletingFile": "Eliminando archivo...",
         "errorDeleting": "Error eliminando.",
-        "fileDeleted": "Archivo eliminado"
+        "fileDeleted": "Archivo eliminado",
+        "createFolderLabel": "Crear una nueva carpeta",
+        "folderNameLabel": "Nombre de carpeta",
+        "folderNamePlaceholder": "Ingrese nombre de carpeta",
+        "createFolder": "Crear carpeta",
+        "creatingFolder": "Creando carpeta...",
+        "folderNameRequired": "El nombre de carpeta es obligatorio",
+        "invalidFolderName": "Nombre de carpeta no válido. No puede contener / \\ o ..",
+        "folderCreationError": "Error al crear carpeta - por favor, inténtalo de nuevo o contacta con el administrador."
     },
     "developerSettings": "Configuración del desarrollador",
 

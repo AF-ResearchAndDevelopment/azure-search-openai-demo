@@ -383,6 +383,18 @@ class AdlsBlobManager(BaseBlobManager):
             # Return empty list for 404 (no directory) as this is expected for new users
         return files
 
+    async def create_folder(self, folder_name: str, user_oid: str) -> None:
+        """
+        Creates a new folder in the user's directory.
+
+        Args:
+            folder_name: The name of the folder to create
+            user_oid: The user's object ID
+        """
+        folder_path = f"{user_oid}/{folder_name}"
+        await self._ensure_directory(directory_path=folder_path, user_oid=user_oid)
+        logger.info(f"Created folder: {folder_path}")
+
 
 class BlobManager(BaseBlobManager):
     """

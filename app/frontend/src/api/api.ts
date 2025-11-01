@@ -129,6 +129,22 @@ export async function listUploadedFilesApi(idToken: string): Promise<string[]> {
     return dataResponse;
 }
 
+export async function createFolderApi(folderName: string, idToken: string): Promise<SimpleAPIResponse> {
+    const headers = await getHeaders(idToken);
+    const response = await fetch("/create_folder", {
+        method: "POST",
+        headers: { ...headers, "Content-Type": "application/json" },
+        body: JSON.stringify({ folder_name: folderName })
+    });
+
+    if (!response.ok) {
+        throw new Error(`Creating folder failed: ${response.statusText}`);
+    }
+
+    const dataResponse: SimpleAPIResponse = await response.json();
+    return dataResponse;
+}
+
 export async function postChatHistoryApi(item: any, idToken: string): Promise<any> {
     const headers = await getHeaders(idToken);
     const response = await fetch("/chat_history", {

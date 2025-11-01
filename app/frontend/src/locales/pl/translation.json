@@ -30,7 +30,15 @@
         "deleteFile": "Usuń plik",
         "deletingFile": "Usuwanie pliku...",
         "errorDeleting": "Błąd podczas usuwania.",
-        "fileDeleted": "Plik usunięty"
+        "fileDeleted": "Plik usunięty",
+        "createFolderLabel": "Utwórz nowy folder",
+        "folderNameLabel": "Nazwa folderu",
+        "folderNamePlaceholder": "Wprowadź nazwę folderu",
+        "createFolder": "Utwórz folder",
+        "creatingFolder": "Tworzenie folderu...",
+        "folderNameRequired": "Nazwa folderu jest wymagana",
+        "invalidFolderName": "Nieprawidłowa nazwa folderu. Nie może zawierać / \\ ani ..",
+        "folderCreationError": "Błąd podczas tworzenia folderu – spróbuj ponownie lub skontaktuj się z administratorem."
     },
     "developerSettings": "Ustawienia deweloperskie",
 

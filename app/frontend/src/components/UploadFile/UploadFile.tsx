@@ -1,11 +1,11 @@
 import React, { useState, ChangeEvent } from "react";
-import { Callout, Label, Text } from "@fluentui/react";
+import { Callout, Label, Text, TextField } from "@fluentui/react";
 import { Button } from "@fluentui/react-components";
-import { Add24Regular, Delete24Regular } from "@fluentui/react-icons";
+import { Add24Regular, Delete24Regular, FolderAdd24Regular } from "@fluentui/react-icons";
 import { useMsal } from "@azure/msal-react";
 import { useTranslation } from "react-i18next";
 
-import { SimpleAPIResponse, uploadFileApi, deleteUploadedFileApi, listUploadedFilesApi } from "../../api";
+import { SimpleAPIResponse, uploadFileApi, deleteUploadedFileApi, listUploadedFilesApi, createFolderApi } from "../../api";
 import { useLogin, getToken } from "../../authConfig";
 import styles from "./UploadFile.module.css";
 
@@ -23,6 +23,10 @@ export const UploadFile: React.FC<Props> = ({ className, disabled }: Props) => {
     const [uploadedFile, setUploadedFile] = useState<SimpleAPIResponse>();
     const [uploadedFileError, setUploadedFileError] = useState<string>();
     const [uploadedFiles, setUploadedFiles] = useState<string[]>([]);
+    const [folderName, setFolderName] = useState<string>("");
+    const [isCreatingFolder, setIsCreatingFolder] = useState<boolean>(false);
+    const [folderCreationError, setFolderCreationError] = useState<string>();
+    const [folderCreationSuccess, setFolderCreationSuccess] = useState<string>();
     const { t } = useTranslation();
 
     if (!useLogin) {
@@ -71,6 +75,40 @@ export const UploadFile: React.FC<Props> = ({ className, disabled }: Props) => {
         } catch (error) {
             setDeletionStatus({ ...deletionStatus, [filename]: "error" });
             console.error(error);
+        }
+    };
+
+    // Handler for creating a folder
+    const handleCreateFolder = async () => {
+        if (!folderName.trim()) {
+            setFolderCreationError(t("upload.folderNameRequired"));
+            return;
+        }
+
+        // Validate folder name
+        if (folderName.includes("/") || folderName.includes("\\") || folderName.includes("..")) {
+            setFolderCreationError(t("upload.invalidFolderName"));
+            return;
+        }
+
+        setIsCreatingFolder(true);
+        setFolderCreationError(undefined);
+        setFolderCreationSuccess(undefined);
+
+        try {
+            const idToken = await getToken(client);
+            if (!idToken) {
+                throw new Error("No authentication token available");
+            }
+            const response: SimpleAPIResponse = await createFolderApi(folderName, idToken);
+            setFolderCreationSuccess(response.message);
+            setFolderName("");
+            setIsCreatingFolder(false);
+            listUploadedFiles(idToken);
+        } catch (error) {
+            console.error(error);
+            setIsCreatingFolder(false);
+            setFolderCreationError(t("upload.folderCreationError"));
         }
     };
 
@@ -134,6 +172,30 @@ export const UploadFile: React.FC<Props> = ({ className, disabled }: Props) => {
                         {isUploading && <Text>{t("upload.uploadingFiles")}</Text>}
                         {!isUploading && uploadedFileError && <Text>{uploadedFileError}</Text>}
                         {!isUploading && uploadedFile && <Text>{uploadedFile.message}</Text>}
+
+                        {/* Folder creation section */}
+                        <div style={{ marginTop: "20px", marginBottom: "20px" }}>
+                            <h3>{t("upload.createFolderLabel")}</h3>
+                            <div style={{ display: "flex", gap: "10px", alignItems: "flex-end" }}>
+                                <TextField
+                                    label={t("upload.folderNameLabel")}
+                                    value={folderName}
+                                    onChange={(e, newValue) => setFolderName(newValue || "")}
+                                    placeholder={t("upload.folderNamePlaceholder")}
+                                    disabled={isCreatingFolder}
+                                    styles={{ root: { flex: 1 } }}
+                                />
+                                <Button
+                                    icon={<FolderAdd24Regular />}
+                                    onClick={handleCreateFolder}
+                                    disabled={isCreatingFolder || !folderName.trim()}
+                                >
+                                    {isCreatingFolder ? t("upload.creatingFolder") : t("upload.createFolder")}
+                                </Button>
+                            </div>
+                            {folderCreationError && <Text className={styles.errorText}>{folderCreationError}</Text>}
+                            {folderCreationSuccess && <Text className={styles.successText}>{folderCreationSuccess}</Text>}
+                        </div>
 
                         {/* Display the list of already uploaded */}
                         <h3>{t("upload.uploadedFilesLabel")}</h3>

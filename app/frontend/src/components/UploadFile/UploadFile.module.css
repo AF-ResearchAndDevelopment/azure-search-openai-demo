@@ -24,3 +24,11 @@
     text-overflow: ellipsis;
     margin-bottom: 0.75em;
 }
+
+.errorText {
+    color: var(--colorPaletteRedForeground1, #c50f1f);
+}
+
+.successText {
+    color: var(--colorPaletteGreenForeground1, #0e700e);
+}

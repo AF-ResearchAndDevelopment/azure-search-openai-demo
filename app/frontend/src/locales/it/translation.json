@@ -30,7 +30,15 @@
         "deleteFile": "Elimina file",
         "deletingFile": "Eliminazione file...",
         "errorDeleting": "Errore durante l'eliminazione.",
-        "fileDeleted": "File eliminato"
+        "fileDeleted": "File eliminato",
+        "createFolderLabel": "Crea una nuova cartella",
+        "folderNameLabel": "Nome cartella",
+        "folderNamePlaceholder": "Inserisci il nome della cartella",
+        "createFolder": "Crea cartella",
+        "creatingFolder": "Creazione cartella...",
+        "folderNameRequired": "Il nome della cartella è obbligatorio",
+        "invalidFolderName": "Nome cartella non valido. Non può contenere / \\ o ..",
+        "folderCreationError": "Errore durante la creazione della cartella - riprova o contatta l'amministratore."
     },
     "developerSettings": "Impostazioni sviluppatore",
 
