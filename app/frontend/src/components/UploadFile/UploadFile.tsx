@@ -193,8 +193,8 @@ export const UploadFile: React.FC<Props> = ({ className, disabled }: Props) => {
                                     {isCreatingFolder ? t("upload.creatingFolder") : t("upload.createFolder")}
                                 </Button>
                             </div>
-                            {folderCreationError && <Text style={{ color: "red" }}>{folderCreationError}</Text>}
-                            {folderCreationSuccess && <Text style={{ color: "green" }}>{folderCreationSuccess}</Text>}
+                            {folderCreationError && <Text className={styles.errorText}>{folderCreationError}</Text>}
+                            {folderCreationSuccess && <Text className={styles.successText}>{folderCreationSuccess}</Text>}
                         </div>
 
                         {/* Display the list of already uploaded */}
