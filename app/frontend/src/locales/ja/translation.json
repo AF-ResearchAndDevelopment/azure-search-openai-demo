@@ -30,7 +30,15 @@
         "deleteFile": "ファイルを削除",
         "deletingFile": "ファイルを削除中...",
         "errorDeleting": "削除エラー。",
-        "fileDeleted": "ファイル削除済み"
+        "fileDeleted": "ファイル削除済み",
+        "createFolderLabel": "新しいフォルダを作成",
+        "folderNameLabel": "フォルダ名",
+        "folderNamePlaceholder": "フォルダ名を入力",
+        "createFolder": "フォルダを作成",
+        "creatingFolder": "フォルダを作成中...",
+        "folderNameRequired": "フォルダ名は必須です",
+        "invalidFolderName": "無効なフォルダ名です。/ \\ または .. を含めることはできません",
+        "folderCreationError": "フォルダ作成エラー - 再試行、もしくは管理者にお問い合わせください。"
     },
     "developerSettings": "高度な設定",
 

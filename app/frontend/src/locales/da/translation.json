@@ -30,7 +30,15 @@
         "deleteFile": "Slet fil",
         "deletingFile": "Sletter fil...",
         "errorDeleting": "Fejl ved sletning.",
-        "fileDeleted": "Fil slettet"
+        "fileDeleted": "Fil slettet",
+        "createFolderLabel": "Opret en ny mappe",
+        "folderNameLabel": "Mappenavn",
+        "folderNamePlaceholder": "Indtast mappenavn",
+        "createFolder": "Opret mappe",
+        "creatingFolder": "Opretter mappe...",
+        "folderNameRequired": "Mappenavn er påkrævet",
+        "invalidFolderName": "Ugyldigt mappenavn. Kan ikke indeholde / \\ eller ..",
+        "folderCreationError": "Fejl ved oprettelse af mappe - prøv igen eller kontakt administrator."
     },
     "developerSettings": "Udviklerindstillinger",
     "chatEmptyStateTitle": "Chat med dine data",

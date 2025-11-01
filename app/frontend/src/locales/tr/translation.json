@@ -30,7 +30,15 @@
         "deleteFile": "Dosyayı sil",
         "deletingFile": "Dosya siliniyor...",
         "errorDeleting": "Silme hatası.",
-        "fileDeleted": "Dosya silindi"
+        "fileDeleted": "Dosya silindi",
+        "createFolderLabel": "Yeni klasör oluştur",
+        "folderNameLabel": "Klasör adı",
+        "folderNamePlaceholder": "Klasör adını girin",
+        "createFolder": "Klasör oluştur",
+        "creatingFolder": "Klasör oluşturuluyor...",
+        "folderNameRequired": "Klasör adı gereklidir",
+        "invalidFolderName": "Geçersiz klasör adı. / \\ veya .. içeremez",
+        "folderCreationError": "Klasör oluşturulurken hata oluştu - lütfen tekrar deneyin veya yönetici ile iletişime geçin."
     },
     "developerSettings": "Geliştirici ayarları",
 

@@ -30,7 +30,15 @@
         "deleteFile": "Supprimer le fichier",
         "deletingFile": "Suppression du fichier...",
         "errorDeleting": "Erreur lors de la suppression.",
-        "fileDeleted": "Fichier supprimé"
+        "fileDeleted": "Fichier supprimé",
+        "createFolderLabel": "Créer un nouveau dossier",
+        "folderNameLabel": "Nom du dossier",
+        "folderNamePlaceholder": "Entrez le nom du dossier",
+        "createFolder": "Créer le dossier",
+        "creatingFolder": "Création du dossier...",
+        "folderNameRequired": "Le nom du dossier est requis",
+        "invalidFolderName": "Nom de dossier invalide. Ne peut pas contenir / \\ ou ..",
+        "folderCreationError": "Erreur lors de la création du dossier - veuillez réessayer ou contacter l'administrateur."
     },
     "developerSettings": "Paramètres développeur",
 

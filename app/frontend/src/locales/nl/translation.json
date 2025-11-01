@@ -30,7 +30,15 @@
         "deleteFile": "Bestand verwijderen",
         "deletingFile": "Bestand verwijderen...",
         "errorDeleting": "Fout bij verwijderen.",
-        "fileDeleted": "Bestand verwijderd"
+        "fileDeleted": "Bestand verwijderd",
+        "createFolderLabel": "Maak een nieuwe map aan",
+        "folderNameLabel": "Mapnaam",
+        "folderNamePlaceholder": "Voer mapnaam in",
+        "createFolder": "Map aanmaken",
+        "creatingFolder": "Map aanmaken...",
+        "folderNameRequired": "Mapnaam is verplicht",
+        "invalidFolderName": "Ongeldige mapnaam. Mag geen / \\ of .. bevatten",
+        "folderCreationError": "Fout bij aanmaken van map - probeer het opnieuw of neem contact op met de beheerder."
     },
     "developerSettings": "Ontwikkelaarinstellingen",
 

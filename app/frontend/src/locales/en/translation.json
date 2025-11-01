@@ -30,7 +30,15 @@
         "deleteFile": "Delete file",
         "deletingFile": "Deleting file...",
         "errorDeleting": "Error deleting.",
-        "fileDeleted": "File deleted"
+        "fileDeleted": "File deleted",
+        "createFolderLabel": "Create a new folder",
+        "folderNameLabel": "Folder name",
+        "folderNamePlaceholder": "Enter folder name",
+        "createFolder": "Create folder",
+        "creatingFolder": "Creating folder...",
+        "folderNameRequired": "Folder name is required",
+        "invalidFolderName": "Invalid folder name. Cannot contain / \\ or ..",
+        "folderCreationError": "Error creating folder - please try again or contact admin."
     },
     "developerSettings": "Developer settings",
 
